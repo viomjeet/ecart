@@ -16,7 +16,9 @@ class Profile extends Component {
 
                                 <div className="profile" key={items.email}>
                                     <img src={items.dp} />
-                                    <h1 className="user-name">{items.name}</h1>
+                                    <h1 className="user-name">{items.name}&nbsp;
+                                    <button title="logout" type="button" className="btn btn-sm btn-light" onClick={this.props.userLogout}><i className="fad fa-sign-out"></i></button>
+                                    </h1>
                                     <ul className="user-details">
                                         <li><i className="fad fa-mobile"></i> {items.mobile} </li>
                                         <li><i className="fad fa-envelope"></i> {items.email}</li>

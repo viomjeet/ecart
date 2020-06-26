@@ -36,7 +36,7 @@ class App extends React.Component {
         if (allusers[user.email].password !== window.btoa(user.password)) {
           this.setState({ message: { error: "Password error..." } })
         } else {
-          var date = new Date();
+          let date = new Date();
           date.setTime(date.getTime() + (1 * 60 * 1000));
           localStorage.setItem("eCartUser", JSON.stringify(allusers[user.email]), { expires: date }, { signed: true });
           document.location.href = "/ecart/products";
@@ -94,19 +94,19 @@ class App extends React.Component {
                 <Nav className="ml-auto">
                   {ls.length <= 0 ?
                     <React.Fragment>
-                      <Link className="nav-link" to="/ecart/home"><i className="fad fa-home"></i></Link>
-                      <Link className="nav-link" to="/ecart/login"><i className="fad fa-sign-in"></i></Link>
+                      <Link className="nav-link" to="/home"><i className="fad fa-home"></i></Link>
+                      <Link className="nav-link" to="/login"><i className="fad fa-sign-in"></i></Link>
                     </React.Fragment>
                     :
                     <React.Fragment>
-                      <Link className="nav-link" to="/ecart/home"><i className="fad fa-home"></i></Link>
-                      <Link className="nav-link" to="/ecart/products">Products</Link>
+                      <Link className="nav-link" to="/home"><i className="fad fa-home"></i></Link>
+                      <Link className="nav-link" to="/products">Products</Link>
                       <NavDropdown alignRight title={<span className="fad fa-user"></span>} id="basic-nav-dropdown">
                         <NavDropdown.Item href="/ecart/profile"><i className="fad fa-user"></i>&nbsp;Profile</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={this.userLogout}><i className="fad fa-sign-out"></i>&nbsp;Logout</NavDropdown.Item>
                       </NavDropdown>
-                      <Link className="nav-link" to="/ecart/products" title={`${cartItems.length} Items in cart`}>
+                      <Link className="nav-link" to="/products" title={`${cartItems.length} Items in cart`}>
                         <i className="fad fa-shopping-cart"></i>&nbsp;
                             <span className="badge badge-light">{cartItems.length > 99 ? '99+' : cartItems.length}</span>
                       </Link>
@@ -116,16 +116,15 @@ class App extends React.Component {
                 </Nav>
               </section>
             </Navbar>
-            <Redirect exact from="/ecart/" to="/ecart/home" />
-            <Route path="/ecart/home"><Home /></Route>
-            <Route path="/ecart/login">
+            <Route path="/home"><Home /></Route>
+            <Route path="/login">
               <Login {...newuser} inputChange={this.inputChange} loginSubmit={this.loginSubmit} message={message} />
             </Route>
-            <Route path="/ecart/products">
+            <Route path="/products">
               <Products addTocart={this.addTocart} deleteCartProduct={this.deleteCartProduct} ls={ls} products={products} cartItems={cartItems} itemPrice={itemPrice} />
             </Route>
-            <Route path="/ecart/profile">
-              <Profile user={CartUser} ls={ls} />
+            <Route path="/profile">
+              <Profile user={CartUser} ls={ls} userLogout={this.userLogout} />
             </Route>
           </Router>
         </div>
