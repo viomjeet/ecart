@@ -8,7 +8,7 @@ import Login from './components/login';
 import Profile from './components/profile';
 import Products from './components/products';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router,Redirect, Route, Link } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -95,12 +95,12 @@ class App extends React.Component {
                 <Nav className="ml-auto">
                   {ls.length <= 0 ? 
                     <React.Fragment>
-                    <Link className="nav-link" to="/"><i className="fad fa-home"></i></Link>
+                    <Link className="nav-link" to="/home"><i className="fad fa-home"></i></Link>
                     <Link className="nav-link" to="/login"><i className="fad fa-sign-in"></i></Link>
                     </React.Fragment>
                     :
                     <React.Fragment>
-                    <Link className="nav-link" to="/"><i className="fad fa-home"></i></Link>
+                    <Link className="nav-link" to="/home"><i className="fad fa-home"></i></Link>
                       <Link className="nav-link" to="/products">Products</Link>
                       <NavDropdown alignRight title={<span className="fad fa-user"></span>} id="basic-nav-dropdown">
                         <NavDropdown.Item href="/profile"><i className="fad fa-user"></i>&nbsp;Profile</NavDropdown.Item>
@@ -117,7 +117,8 @@ class App extends React.Component {
                 </Nav>
               </section>
             </Navbar>
-            <Route exact path="/"><Home /></Route>
+            <Redirect exact from="/" to="/home" />
+            <Route path="/home"><Home /></Route>
             <Route path="/login">
               <Login {...newuser} inputChange={this.inputChange} loginSubmit={this.loginSubmit} message={message} />
             </Route>
