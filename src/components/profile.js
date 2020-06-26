@@ -27,7 +27,7 @@ class Profile extends Component {
                     </React.Fragment>
 
                     : <div className="center-page">
-                        <strong><a className="ecart-link" href="/login">Please Login</a></strong>
+                        <strong><a className="ecart-link" href="/ecart/login">Please Login</a></strong>
                     </div>
                 }
             </React.Fragment>

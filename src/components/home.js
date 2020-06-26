@@ -70,9 +70,7 @@ class Home extends React.Component {
                                         <div className="ecart-ipsum-in">
                                             <img className="d-block w-100" src={items.download_url} />
                                             <footer>
-
                                                 <span><i className="fad fa-at"></i> {items.author.slice(0, 10) + '...'}</span>
-
                                                 <a href="#">More...</a>
                                             </footer>
                                         </div>
