@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/cartdemo/static/css/main.c9cc367e.chunk.css",
+    "main.js": "/cartdemo/static/js/main.a32d2d0d.chunk.js",
+    "main.js.map": "/cartdemo/static/js/main.a32d2d0d.chunk.js.map",
+    "runtime-main.js": "/cartdemo/static/js/runtime-main.ebcdd3dc.js",
+    "runtime-main.js.map": "/cartdemo/static/js/runtime-main.ebcdd3dc.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/cartdemo/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.17d726d9.chunk.js": "/cartdemo/static/js/2.17d726d9.chunk.js",
+    "static/js/2.17d726d9.chunk.js.map": "/cartdemo/static/js/2.17d726d9.chunk.js.map",
+    "index.html": "/cartdemo/index.html",
+    "precache-manifest.38e7c5186e4c6081b471c0c656d8c6e1.js": "/cartdemo/precache-manifest.38e7c5186e4c6081b471c0c656d8c6e1.js",
+    "service-worker.js": "/cartdemo/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/cartdemo/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.c9cc367e.chunk.css.map": "/cartdemo/static/css/main.c9cc367e.chunk.css.map",
+    "static/js/2.17d726d9.chunk.js.LICENSE.txt": "/cartdemo/static/js/2.17d726d9.chunk.js.LICENSE.txt",
+    "static/media/0001.jpg": "/cartdemo/static/media/0001.a9a37721.jpg",
+    "static/media/0002.jpg": "/cartdemo/static/media/0002.ab370980.jpg",
+    "static/media/0003.jpg": "/cartdemo/static/media/0003.c82e2c1c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ebcdd3dc.js",
+    "static/css/2.af3c1da9.chunk.css",
+    "static/js/2.17d726d9.chunk.js",
+    "static/css/main.c9cc367e.chunk.css",
+    "static/js/main.a32d2d0d.chunk.js"
+  ]
+}
