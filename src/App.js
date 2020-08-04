@@ -87,43 +87,42 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="App_in">
-          <Router basename={'/ecart'}>
+          <Router>
             <Navbar className="ecartNav">
               <section className="container">
-                <Navbar.Brand href="#home">eCart</Navbar.Brand>
+                <Navbar.Brand href="ecart/">eCart</Navbar.Brand>
                 <Nav className="ml-auto">
                   {ls.length <= 0 ?
                     <React.Fragment>
-                      <Link className="nav-link" to="/home"><i className="fad fa-home"></i></Link>
-                      <Link className="nav-link" to="/login"><i className="fad fa-sign-in"></i></Link>
+                      <Link className="nav-link" to="/ecart/"><i className="fad fa-home"></i></Link>
+                      <Link className="nav-link" to="/ecart/login"><i className="fad fa-sign-in"></i></Link>
                     </React.Fragment>
                     :
                     <React.Fragment>
-                      <Link className="nav-link" to="/home"><i className="fad fa-home"></i></Link>
-                      <Link className="nav-link" to="/products">Products</Link>
+                      <Link className="nav-link" to="/ecart/"><i className="fad fa-home"></i></Link>
+                      <Link className="nav-link" to="/ecart/products">Products</Link>
                       <NavDropdown alignRight title={<span className="fad fa-user"></span>} id="basic-nav-dropdown">
                         <NavDropdown.Item href="/ecart/profile"><i className="fad fa-user"></i>&nbsp;Profile</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={this.userLogout}><i className="fad fa-sign-out"></i>&nbsp;Logout</NavDropdown.Item>
                       </NavDropdown>
-                      <Link className="nav-link" to="/products" title={`${cartItems.length} Items in cart`}>
+                      <Link className="nav-link" to="/ecart/products" title={`${cartItems.length} Items in cart`}>
                         <i className="fad fa-shopping-cart"></i>&nbsp;
                             <span className="badge badge-light">{cartItems.length > 99 ? '99+' : cartItems.length}</span>
                       </Link>
                     </React.Fragment>
                   }
-
                 </Nav>
               </section>
             </Navbar>
-            <Route path="/home"><Home /></Route>
-            <Route path="/login">
+            <Route exact path="/ecart/"><Home /></Route>
+            <Route exact path="/ecart/login">
               <Login {...newuser} inputChange={this.inputChange} loginSubmit={this.loginSubmit} message={message} />
             </Route>
-            <Route path="/products">
+            <Route path="/ecart/products">
               <Products addTocart={this.addTocart} deleteCartProduct={this.deleteCartProduct} ls={ls} products={products} cartItems={cartItems} itemPrice={itemPrice} />
             </Route>
-            <Route path="/profile">
+            <Route path="/ecart/profile">
               <Profile user={CartUser} ls={ls} userLogout={this.userLogout} />
             </Route>
           </Router>
