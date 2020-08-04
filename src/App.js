@@ -8,7 +8,7 @@ import Login from './components/login';
 import Profile from './components/profile';
 import Products from './components/products';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { BrowserRouter as Router, Redirect, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, browserHistory, Route, Link } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -20,7 +20,9 @@ class App extends React.Component {
       CartUser: [JSON.parse(localStorage.getItem("eCartUser"))],
       cartItems: [],
       itemPrice: 0,
-      message: { success: '', error: '' }
+      message: { success: '', error: '' },
+      redirect: false
+
     }
 
     this.inputChange = event => {
@@ -39,7 +41,7 @@ class App extends React.Component {
           let date = new Date();
           date.setTime(date.getTime() + (1 * 60 * 1000));
           localStorage.setItem("eCartUser", JSON.stringify(allusers[user.email]), { expires: date }, { signed: true });
-          document.location.href = "/ecart/products";
+          window.history.pushState('products','products', '/ecart/products');
         }
       } else {
         this.setState({ message: { error: "User not found..." } })
@@ -48,7 +50,6 @@ class App extends React.Component {
     this.userLogout = e => {
       localStorage.removeItem("eCartUser");
       localStorage.clear();
-      document.location.reload();
     }
 
     this.countPrice = (array) => {
@@ -102,9 +103,9 @@ class App extends React.Component {
                       <Link className="nav-link" to="/ecart/"><i className="fad fa-home"></i></Link>
                       <Link className="nav-link" to="/ecart/products">Products</Link>
                       <NavDropdown alignRight title={<span className="fad fa-user"></span>} id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/ecart/profile"><i className="fad fa-user"></i>&nbsp;Profile</NavDropdown.Item>
+                        <Link className="dropdown-item" to="/ecart/profile"><i class="fad fa-user"></i>&nbsp;Profile</Link>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={this.userLogout}><i className="fad fa-sign-out"></i>&nbsp;Logout</NavDropdown.Item>
+                        <Link className="dropdown-item" to="/ecart/login" onClick={this.userLogout}><i className="fad fa-sign-out"></i>&nbsp;Logout</Link>
                       </NavDropdown>
                       <Link className="nav-link" to="/ecart/products" title={`${cartItems.length} Items in cart`}>
                         <i className="fad fa-shopping-cart"></i>&nbsp;
@@ -115,8 +116,9 @@ class App extends React.Component {
                 </Nav>
               </section>
             </Navbar>
+
             <Route exact path="/ecart/"><Home /></Route>
-            <Route exact path="/ecart/login">
+            <Route path="/ecart/login">
               <Login {...newuser} inputChange={this.inputChange} loginSubmit={this.loginSubmit} message={message} />
             </Route>
             <Route path="/ecart/products">

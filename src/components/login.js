@@ -30,7 +30,6 @@ const Login = (props) => {
                 </span></h4>
                 <form onSubmit={props.loginSubmit}>
                     <div className="form-group">
-
                         <div className="input-group mb-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text bg-white"><i className="fal fa-envelope-open"></i></span>
@@ -43,10 +42,7 @@ const Login = (props) => {
                                 required
                                 placeholder="Email..."
                             />
-
                         </div>
-
-
                     </div>
                     <div className="form-group">
                         <div className="input-group mb-3">
