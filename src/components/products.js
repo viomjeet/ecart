@@ -15,7 +15,7 @@ const Products = (props) => {
                 </div>:
                 <div className="col-lg-11 mx-auto">
                     <div className="row">
-                        <div className="col-md-8">
+                        <div className="col-md-8 order-2 order-md-12">
                             <ul className="list-unstyled row">
                                 {products.map((items, index) => {
                                     return (
@@ -38,7 +38,7 @@ const Products = (props) => {
                                 }
                             </ul>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-4 order-1 order-md-12">
 
                             <div className="cart_product_panel">
                                 <div className="cart_total">Total Price:&nbsp;₹&nbsp;{cartItems.length === 0 ? 0 : <span>{itemPrice}</span>}

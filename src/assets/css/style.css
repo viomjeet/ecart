@@ -478,7 +478,10 @@ html {
   .ecartNav .nav-link {
     padding-right: 0.2rem !important;
     padding-left : 0.2rem !important;
-    font-size    : 12px;
+    padding-right: 10px!important;
+  }
+  .ecartNav .nav-link:last-child{
+    padding-right: 0px!important;
   }
 
   .cart_product_panel {
